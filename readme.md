@@ -64,7 +64,7 @@ Avaialable Methods:
     "name" => ["string", "required"], 
     "gender" => ["required", "in:male,female"]
     ];
-    can now be:
+    //can now be:
     $validation_array = [
     "name" => ["string", "required"], 
     "gender" => ["required", "in:".EnumManager::enumValues(GenderEnum::class)]
