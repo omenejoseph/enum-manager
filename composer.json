@@ -1,7 +1,7 @@
 {
     "name": "omenejoseph/enummanager",
     "description": "A laravel package that tries to ease the use of enums",
-    "license": "license",
+    "license": "MIT",
     "authors": [
         {
             "name": "Omene Joseph Ogheneruno",
