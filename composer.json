@@ -1,12 +1,12 @@
 {
     "name": "omenejoseph/enummanager",
-    "description": ":package_description",
+    "description": "A laravel package that tries to ease the use of enums",
     "license": "license",
     "authors": [
         {
-            "name": "author name",
-            "email": "author email",
-            "homepage": "author homepage"
+            "name": "Omene Joseph Ogheneruno",
+            "email": "runoomene01@gmail.com",
+            "homepage": ""
         }
     ],
     "homepage": "https://github.com/omenejoseph/enummanager",
