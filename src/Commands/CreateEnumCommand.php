@@ -60,13 +60,12 @@ class CreateEnumCommand extends Command
     public function __construct(Composer $composer, Filesystem $files)
     {
         parent::__construct();
-
         $this->composer = $composer;
 
         $this->files = $files;
-        $this->title = Str::studly($this->argument('title'));
-        $this->directory = app_path('Enums');
+
     }
+
 
     /**
      * Execute the console command.
@@ -75,7 +74,8 @@ class CreateEnumCommand extends Command
      */
     public function handle()
     {
-
+        $this->title = Str::studly($this->argument('title'));
+        $this->directory = app_path('Enums');
         $data = $this->getStub();
         $this->createDirectory();
         $enum_path = $this->getMyEnumPath();
@@ -98,7 +98,7 @@ class CreateEnumCommand extends Command
      */
     private function getStub()
     {
-        $stub = $this->files->get(__DIR__ . "/stubs/EnumManger.stub");
+        $stub = $this->files->get(__DIR__ . "/stubs/EnumManager.stub");
         return str_replace("{{CLASS_NAME}}", $this->title, $stub);
     }
 

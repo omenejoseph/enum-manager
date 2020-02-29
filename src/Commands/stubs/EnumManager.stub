@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Enums;
+use OmeneJoseph\EnumManager\Services\EnumManagerService;
+
+
+class {{CLASS_NAME}} extends EnumManagerService
+{
+   const FOO = 'foo';
+   const BAR = 'bar';
+}
