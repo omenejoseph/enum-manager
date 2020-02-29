@@ -3,6 +3,7 @@
 namespace OmeneJoseph\EnumManager\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use OmeneJoseph\EnumManager\Contracts\EnumManagerInterface;
 
 class EnumManager extends Facade
 {
@@ -13,6 +14,6 @@ class EnumManager extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'enummanager';
+        return EnumManagerInterface::class;
     }
 }

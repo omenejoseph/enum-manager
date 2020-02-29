@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Enums;
-use OmeneJoseph\EnumManager\Services\EnumManager;
+use OmeneJoseph\EnumManager\EnumManager;
 
 
 class {{CLASS_NAME}} extends EnumManager
