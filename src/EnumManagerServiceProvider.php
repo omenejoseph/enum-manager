@@ -5,7 +5,6 @@ namespace OmeneJoseph\EnumManager;
 use Illuminate\Support\ServiceProvider;
 use OmeneJoseph\EnumManager\Commands\CreateEnumCommand;
 use OmeneJoseph\EnumManager\Contracts\EnumManagerInterface;
-use OmeneJoseph\EnumManager\Services\EnumManagerService;
 
 class EnumManagerServiceProvider extends ServiceProvider
 {
@@ -37,12 +36,12 @@ class EnumManagerServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/enummanager.php', 'enummanager');
 
         // Register the service the package provides.
-        $this->app->singleton('enummanager', function ($app) {
-            return new EnumManager;
-        });
+//        $this->app->singleton('enummanager', function ($app) {
+//            return new EnumManager;
+//        });
 
         $this->app->bind(EnumManagerInterface::class, function ($app) {
-            return new EnumManagerService;
+            return new EnumManager;
         });
     }
 
