@@ -16,7 +16,88 @@ $ composer require omenejoseph/enummanager
 ```
 
 ## Usage
+To create an Enum class
+``` bash
+$ php artisan make:enum gender_enum
+```
+This command would create a class GenderEnum in an Enum directory on App folder.
+This clas just contains constants that are your actual enums.
+```
+<?php
 
+namespace App\Enums;
+use OmeneJoseph\EnumManager\EnumManager;
+
+
+class GenderEnum extends EnumManager
+{
+   const FOO = 'foo';
+   const BAR = 'bar';
+}
+```
+Replace the dummy constants on the class with the actual enums you require like so
+```
+<?php
+
+namespace App\Enums;
+use OmeneJoseph\EnumManager\EnumManager;
+
+
+class GenderEnum extends EnumManager
+{
+   const MALE = 'male';
+   const FEMALE = 'female';
+}
+```
+This sums up all you need to do for setting up.
+
+Avaialable Methods:
+1. EnumManager::enumValues()
+  - This accepts the class part of an enum class that extends OmeneJoseph\EnumManager\EnumManager as argument
+  - This returns a comma seperated value of the various constants in that class.
+  - Sample use case is validations
+    validations like:
+    ```
+    <?php
+    
+    $validation_array = [
+    "name" => ["string", "required"], 
+    "gender" => ["required", "in:male,female"]
+    ];
+    can now be:
+    $validation_array = [
+    "name" => ["string", "required"], 
+    "gender" => ["required", "in:".EnumManager::enumValues(GenderEnum::class)]
+    ];
+    ```
+    This can really be helpful if you have a lot of enums
+   
+  
+2. EnumManager::enumValuesArray()
+  - This accepts the class part of an enum class that extends OmeneJoseph\EnumManager\EnumManager as argument
+  - This returns an array of the various constants in that class.  
+  Sample use case
+  Checking if a certain string exists in your enum list
+  ```
+  <?php 
+  
+  $needle = "needle";
+  if(in_array($needle, EnumManager::enumValuesArray(GenderEnum::class))){
+    // cool do stuff
+  } else {
+    // do other stuff
+  }
+  ```
+  
+  
+Apart from these methods, this library provides you with a neat way to store and track your enums, this helps 
+during collaboration, so thesame enum would not be created seperately in different classes.
+
+Please drop a star if you enjoy using this library, feel free to email me with features you would like to be added. 
+If you also like to contribute, contact me.
+
+As more use cases come up, we would be updating and populating the documentation.
+  
 ## Change log
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.
