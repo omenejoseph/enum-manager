@@ -20,8 +20,8 @@ To create an Enum class
 ``` bash
 $ php artisan make:enum gender_enum
 ```
-This command would create a class GenderEnum in an Enum directory on App folder.
-This clas just contains constants that are your actual enums.
+This command would create a class GenderEnum in an Enum directory on app folder.
+This class just contains constants that are your actual enums.
 ```
 <?php
 
@@ -59,7 +59,6 @@ Avaialable Methods:
     validations like:
     ```
     <?php
-    
     $validation_array = [
     "name" => ["string", "required"], 
     "gender" => ["required", "in:male,female"]
@@ -69,6 +68,12 @@ Avaialable Methods:
     "name" => ["string", "required"], 
     "gender" => ["required", "in:".EnumManager::enumValues(GenderEnum::class)]
     ];
+    ```
+    Do not forget to import class namespaces and use them
+    
+    ```
+       OmeneJoseph\EnumManager\Facades\EnumManager
+       App\Enums\GenderEnum
     ```
     This can really be helpful if you have a lot of enums
    
@@ -88,7 +93,12 @@ Avaialable Methods:
     // do other stuff
   }
   ```
-  
+  Do not forget to import class namespaces and use them
+    
+    ```
+       OmeneJoseph\EnumManager\Facades\EnumManager
+       App\Enums\GenderEnum
+    ```
   
 Apart from these methods, this library provides you with a neat way to store and track your enums, this helps 
 during collaboration, so thesame enum would not be created seperately in different classes.
